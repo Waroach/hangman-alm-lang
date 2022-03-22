@@ -83,9 +83,15 @@ fetchWord =
         , expect = Http.expectJson NewPhrase wordDecoder
         }
 
+testTwofetchWord : Cmd Msg
+testTwofetchWord =
+    Http.get
+        { url = "https://words.devonzara.com/api"
+        , expect = Http.expectJson NewPhrase wordDecoder
+        }
 
-testFetchWord : Cmd Msg
-testFetchWord =
+testOnefetchWord : Cmd Msg
+testOnefetchWord =
     Http.get
         { url = "https://random-words-api.vercel.app/word"
         , expect = Http.expectJson NewPhrase wordDecoder
